@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Lato&family=Playfair+Display&display=swap');
 
 $black: #3F4238;
+$white: #fff;
 $grey: #868686;
 $green: #CCD5AE;
 $background: #FEFAE0;
-$secondary: #B98B73;
+$secondary: #DDBEA9;
 $base-size: 18px;
 $simple-shadow: rgba(0, 0, 0, 0.25) 4px 4px 4px;
 $sans-serif: 'Lato', 'Helvetica', 'Arial', sans-serif;
@@ -25,6 +26,41 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $serif;
   color: #000;
+}
+
+h1, h2 {
+  margin-bottom: 0.3em;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+input[type="text"], 
+input[type="button"] {
+  border-radius: 10px;
+  border: none;
+  box-shadow: $simple-shadow;
+  font-size: $base-size;
+  font-family: $sans-serif;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="button"] {
+  padding: 20px 50px;
+  background-color: $green;
+}
+
+input[type="button"]:hover {
+  cursor: pointer;
 }
 
 .container {
@@ -56,50 +92,44 @@ nav {
   }
 }
 
-.home {
+.title {
+  margin-bottom: 3em;
+
   h1 {
     margin-bottom: 0.3em;
     font-size: 2em;
     font-weight: normal;
   }
 
-  .title {
-    margin-bottom: 3em;
-
-    p {
-      color: $grey;
-    }
+  p {
+    color: $grey;
   }
+}
 
-  .shorten {
-    display: flex;
+.shorten {
+  margin-bottom: 5em;
+  display: flex;
 
-    input[type="text"], 
-    input[type="submit"] {
-      border-radius: 10px;
-      border: none;
-      box-shadow: $simple-shadow;
-      font-size: $base-size;
-      font-family: $sans-serif;
-    }
+  input[type="text"] {
+    padding: 20px;
+    flex-grow: 1;
+    margin-right: 2em;
+  }
+}
 
-    input[type="text"] {
-      padding: 20px;
-      flex-grow: 1;
-      margin-right: 2em;
-    }
+.about {
+  background-color: $secondary;
+  width: 100%;
+  padding: 2em 0;
 
-    input[type="text"]:focus {
-      outline: none;
-    }
-
-    input[type="submit"] {
-      padding: 20px 50px;
-      background-color: $green;
-    }
-
-    input[type="submit"]:hover {
-      cursor: pointer;
-    }
+  input[type="button"] {
+    display: block;
+    background-color: $black;
+    color: $white;
+    margin: 1em auto;
+  }
+  
+  .container {
+    margin: 0 auto;
   }
 }
