@@ -17,5 +17,67 @@
     </p>
 
     <input type="button" value="View guide">
+
+    <p>mast uses the following technologies & frameworks!</p>
+
+    <div class="technologies">
+      <div class="technology">
+        <img src="<%= Routes.static_path(@socket, "/images/redis.png") %>" alt="Redis"/>
+        <p>Redis</p>
+      </div>
+
+      <div class="technology">
+        <img src="<%= Routes.static_path(@socket, "/images/postgresql.png") %>" alt="PostgreSQL"/>
+        <p>PostgreSQL</p>
+      </div>
+
+      <div class="technology">
+        <img src="<%= Routes.static_path(@socket, "/images/elixir.png") %>" alt="Elixir"/>
+        <p>Elixir</p>
+      </div>
+
+      <div class="technology">
+        <img src="<%= Routes.static_path(@socket, "/images/ecto.png") %>" alt="Ecto"/>
+        <p>Ecto</p>
+      </div>
+
+      <div class="technology">
+        <img src="<%= Routes.static_path(@socket, "/images/phoenix.png") %>" alt="Phoenix"/>
+        <p>Phoenix</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container features">
+  <h2>Why mast?</h2>
+
+  <div class="reasons">
+    <div class="reason">
+      <img src="<%= Routes.static_path(@socket, "/images/bolt.svg") %>" alt="Fast"/>
+      <h3>Fast</h3>
+      <p>
+        Powered by kobold, a blazingly fast and minimal backend web server built with plain Plug. This ensures
+        that the web server is not bogged down by unnecessary fuss and can focus on delivering high performance in
+        real-time.
+      </p>
+    </div>
+
+    <div class="reason">
+      <img src="<%= Routes.static_path(@socket, "/images/diagram.svg") %>" alt="Reliable"/>
+      <h3>Reliable</h3>
+      <p>
+        Leveraging Elixir & Docker to facilitate application recovery. Distributed servers to ensure application
+        availability.
+      </p>
+    </div>
+
+    <div class="reason">
+      <img src="<%= Routes.static_path(@socket, "/images/mug.svg") %>" alt="Open Source"/>
+      <h3>Open Source</h3>
+      <p>
+        Publicly available for self-hosting and contribution.
+      </p>
+    </div>
   </div>
 </section>
