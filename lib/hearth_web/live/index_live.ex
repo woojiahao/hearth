@@ -1,4 +1,4 @@
-defmodule HearthWeb.PageLive do
+defmodule HearthWeb.IndexLive do
   use HearthWeb, :live_view
 
   @impl true
