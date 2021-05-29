@@ -57,7 +57,8 @@ h3 {
 }
 
 input[type="text"],
-input[type="button"] {
+input[type="button"],
+button {
   border-radius: 10px;
   border: none;
   box-shadow: $simple-shadow;
@@ -69,12 +70,14 @@ input[type="text"]:focus {
   outline: none;
 }
 
-input[type="button"] {
+input[type="button"],
+button {
   padding: 20px 50px;
   background-color: $green;
 }
 
-input[type="button"]:hover {
+input[type="button"]:hover,
+button:hover {
   cursor: pointer;
 }
 
@@ -121,7 +124,7 @@ nav {
   }
 }
 
-.shorten {
+.shorten form {
   margin-bottom: 5em;
   display: flex;
 

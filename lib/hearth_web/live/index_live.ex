@@ -3,16 +3,15 @@ defmodule HearthWeb.IndexLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, [])}
+    {:ok, assign(socket, hash: nil, error: nil)}
   end
 
   @impl true
-  def handle_event("shorten", _value, socket) do
-    case Hearth.KoboldUrl.shorten("http://woojiahao.github.io") do
-      {:ok, hash} -> IO.puts(hash)
-      {:error, reason} -> IO.inspect(reason)
+  def handle_event("shorten", %{"form" => %{"original" => original}}, socket) do
+    # TODO: Add validation for original
+    case Hearth.KoboldUrl.shorten(original) do
+      {:ok, hash} -> {:noreply, assign(socket, hash: hash, error: nil)}
+      {:error, reason} -> {:noreply, assign(socket, hash: nil, error: reason)}
     end
-
-    {:noreply, assign(socket, [])}
   end
 end

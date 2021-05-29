@@ -4,8 +4,20 @@
 </section>
 
 <section class="container shorten">
-  <input type="text" id="shorten-field" name="shorten-field" placeholder="Enter URL here">
-  <input type="button" value="Shorten" phx-click="shorten">
+  <%= f = form_for :form, "#", [phx_submit: "shorten"] %>
+    <%= text_input f, :original, [placeholder: "Enter URL here"] %>
+    <%= submit "Shorten" %>
+  </form>
+
+  <%= cond do %>
+    <% !is_nil(@hash) -> %>
+      <p>Hello world</p>
+    <% !is_nil(@error) -> %>
+      <p><%= @error %></p>
+    <% true -> %>
+      <p></p>
+  <% end %>
+
 </section>
 
 <section class="about">
