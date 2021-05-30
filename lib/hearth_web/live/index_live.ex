@@ -10,8 +10,11 @@ defmodule HearthWeb.IndexLive do
   def handle_event("shorten", %{"form" => %{"original" => original}}, socket) do
     # TODO: Add validation for original
     case Hearth.KoboldUrl.shorten(original) do
-      {:ok, hash} -> {:noreply, assign(socket, hash: hash, error: nil)}
-      {:error, reason} -> {:noreply, assign(socket, hash: nil, error: reason)}
+      {:ok, hash} ->
+        {:noreply, assign(socket, hash: Hearth.create_redirect_url(hash), error: nil)}
+
+      {:error, reason} ->
+        {:noreply, assign(socket, hash: nil, error: reason)}
     end
   end
 end

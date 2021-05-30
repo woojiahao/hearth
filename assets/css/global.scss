@@ -124,14 +124,27 @@ nav {
   }
 }
 
-.shorten form {
+.shorten {
   margin-bottom: 5em;
-  display: flex;
 
-  input[type="text"] {
-    padding: 20px;
-    flex-grow: 1;
-    margin-right: 2em;
+  form {
+    margin-bottom: 2em;
+    display: flex;
+
+    input[type="text"] {
+      padding: 20px;
+      flex-grow: 1;
+      margin-right: 2em;
+    }
+
+  }
+
+  #copy-link {
+    text-decoration: underline;
+  }
+
+  #copy-link:hover {
+    cursor: pointer;
   }
 }
 

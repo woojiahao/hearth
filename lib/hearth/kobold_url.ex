@@ -29,13 +29,8 @@ defmodule Hearth.KoboldUrl do
     end
   end
 
-  def process_url(url) do
-    base = Application.get_env(:hearth, :api_path)
-    # TODO: Properly generate URL
-    base
-    |> URI.merge(url)
-    |> URI.to_string()
-  end
+  # TODO: Properly generate URL
+  def process_url(url), do: Hearth.create_redirect_url(url)
 
   def process_request_headers(headers) do
     h = [

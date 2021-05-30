@@ -11,13 +11,12 @@
 
   <%= cond do %>
     <% !is_nil(@hash) -> %>
-      <p>Hello world</p>
+      Link generated (Click to copy to clipboard!): <span onclick="copyToClipboard('copy-link')" id="copy-link"><%= @hash %></span>
     <% !is_nil(@error) -> %>
       <p><%= @error %></p>
     <% true -> %>
       <p></p>
   <% end %>
-
 </section>
 
 <section class="about">
@@ -64,3 +63,14 @@
     </div>
   </div>
 </section>
+
+<script>
+  function copyToClipboard(id) {
+    let r = document.createRange()
+    r.selectNode(document.getElementById(id))
+    window.getSelection().removeAllRanges()
+    window.getSelection().addRange(r)
+    document.execCommand("copy")
+    window.getSelection().removeAllRanges()
+  }
+</script>
