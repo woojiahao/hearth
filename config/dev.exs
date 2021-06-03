@@ -66,4 +66,6 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :hearth, api_path: "http://localhost:4001", auth_path: "http://localhost:4003"
+config :hearth, api_path: "http://localhost:4001"
+
+config :hearth, auth_path: "http://localhost:4003"

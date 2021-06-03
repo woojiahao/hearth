@@ -1,0 +1,16 @@
+<section class="container login-form">
+  <h1>Log In</h1>
+  <%= f = form_for :form, "#", [phx_submit: "login"] %>
+    <div>
+      <label for="form_email">Email</label>
+      <%= text_input f, :email, [placeholder: "Email"] %>
+    </div>
+
+    <div>
+      <label for="form_password">Password</label>
+      <%= text_input f, :password, [placeholder: "Password"] %>
+    </div>
+
+    <%= submit "Log In" %>
+  </form>
+</section>

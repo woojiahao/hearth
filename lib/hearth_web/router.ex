@@ -18,6 +18,7 @@ defmodule HearthWeb.Router do
     pipe_through :browser
 
     live "/", IndexLive
+    live "/login", LoginLive
   end
 
   # Other scopes may use custom stacks.

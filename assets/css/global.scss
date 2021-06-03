@@ -56,6 +56,7 @@ h3 {
   font-size: 1.5em;
 }
 
+
 input[type="text"],
 input[type="button"],
 button {
@@ -64,6 +65,12 @@ button {
   box-shadow: $simple-shadow;
   font-size: $base-size;
   font-family: $sans-serif;
+}
+
+input[type="text"] {
+  padding: 20px;
+  flex-grow: 1;
+  margin-right: 2em;
 }
 
 input[type="text"]:focus {
@@ -136,7 +143,6 @@ nav {
       flex-grow: 1;
       margin-right: 2em;
     }
-
   }
 
   #copy-link {
@@ -201,6 +207,35 @@ nav {
     }
   }
 }
+
+.login-form {
+  max-width: 700px;
+
+  div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  div:not(:last-child) {
+    margin-bottom: 2em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      width: 150px;
+    }
+
+    input[type="text"] {
+      flex-grow: 2;
+      margin: 0;
+    }
+  }
+}
+
 
 footer {
   background-color: $black;
