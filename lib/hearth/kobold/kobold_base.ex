@@ -1,7 +1,11 @@
 defmodule Hearth.KoboldBase do
+  import HTTPoison
+
   defmacro __using__(opts) do
-    quote bind_quoted: [opts: opts] do
+    quote location: :keep, bind_quoted: [opts: opts] do
       use HTTPoison.Base
+
+      import Hearth.KoboldBase
 
       url_func = Keyword.get(opts, :url_func)
 
@@ -18,6 +22,20 @@ defmodule Hearth.KoboldBase do
 
       def process_request_body(body), do: Jason.encode!(body)
       def process_response_body(body), do: Jason.decode!(body)
+    end
+  end
+
+  def post?(url, body) do
+    case post(url, body) do
+      {:ok, %HTTPoison.Response{status_code: code, body: body}} when code in 200..299 ->
+        {:ok, body}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        error = body |> Map.get("error", body |> Map.get("errors", ""))
+        {:error, error}
+
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        {:error, reason}
     end
   end
 end

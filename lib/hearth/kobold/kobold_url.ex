@@ -9,23 +9,9 @@ defmodule Hearth.KoboldUrl do
 
   def shorten(url) do
     # TODO: Allow other options to be used but tie them to a user account like expiration date using dashboard to control
-    case post_("create", %{"original" => url}) do
+    case post?("create", %{"original" => url}) do
       {:ok, body} -> {:ok, body["message"]}
       {:error, error} -> {:error, error}
-    end
-  end
-
-  def post_(url, body) do
-    case post(url, body) do
-      {:ok, %HTTPoison.Response{status_code: code, body: body}} when code in 200..299 ->
-        {:ok, body}
-
-      {:ok, %HTTPoison.Response{body: body}} ->
-        error = body |> Map.get("error", body |> Map.get("errors", ""))
-        {:error, error}
-
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, reason}
     end
   end
 end
