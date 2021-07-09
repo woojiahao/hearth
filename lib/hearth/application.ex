@@ -8,11 +8,8 @@ defmodule Hearth.Application do
     HTTPoison.start()
 
     children = [
-      # Start the Telemetry supervisor
       HearthWeb.Telemetry,
-      # Start the PubSub system
       {Phoenix.PubSub, name: Hearth.PubSub},
-      # Start the Endpoint (http/https)
       HearthWeb.Endpoint
       # Start a worker by calling: Hearth.Worker.start_link(arg)
       # {Hearth.Worker, arg}

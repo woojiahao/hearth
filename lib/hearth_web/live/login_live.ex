@@ -19,8 +19,10 @@ defmodule HearthWeb.LoginLive do
       {:ok, access_token, refresh_token} ->
         IO.inspect(access_token)
         IO.inspect(refresh_token)
-        socket |> Plug.Conn.put_session("access_token", access_token)
-        socket |> Plug.Conn.put_session("refresh_token", refresh_token)
+        GenServer.cast(Hearth.Cache, {:set, "access_token", access_token})
+        GenServer.cast(Hearth.Cache, {:set, "refresh_token", refresh_token})
+
+        IO.inspect(GenServer.call(Hearth.Cache, {:get, "access_token"}))
         {:noreply, push_redirect(socket, to: "/", replace: true)}
 
       {:error, error} ->

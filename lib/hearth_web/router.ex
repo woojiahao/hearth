@@ -17,7 +17,8 @@ defmodule HearthWeb.Router do
   scope "/", HearthWeb do
     pipe_through :browser
 
-    live "/", IndexLive
+    get "/", IndexController, :index
+    # live "/", IndexLive
     live "/login", LoginLive
   end
 

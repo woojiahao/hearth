@@ -1,0 +1,76 @@
+<section class="container title">
+  <h1>Simplicity at your fingertips</h1>
+  <p>A fast, free, and reliable URL shortening service</p>
+</section>
+
+<section class="container shorten">
+  <%= f = form_for :form, "#", [phx_submit: "shorten"] %>
+    <%= text_input f, :original, [placeholder: "Enter URL here"] %>
+    <%= submit "Shorten" %>
+  </form>
+
+  <%= cond do %>
+    <% !is_nil(@hash) -> %>
+      Link generated (Click to copy to clipboard!): <span onclick="copyToClipboard('copy-link')" id="copy-link"><%= @hash %></span>
+    <% !is_nil(@error) -> %>
+      <p><%= @error %></p>
+    <% true -> %>
+      <p></p>
+  <% end %>
+</section>
+
+<section class="about">
+  <div class="container content">
+    <h2>About mast</h2>
+    <p>
+      mast is an open-source URL shortener built to explore various technologies & frameworks. It comes with a how-to
+      guide that explains the process of building it from scratch!
+    </p>
+
+    <input type="button" value="View guide">
+  </div>
+</section>
+
+<section class="container features">
+  <h2>Why mast?</h2>
+
+  <div class="reasons">
+    <div class="reason">
+      <img src="<%= Routes.static_path(@conn, "/images/bolt.svg") %>" alt="Fast"/>
+      <h3>Fast</h3>
+      <p>
+        Powered by kobold, a blazingly fast and minimal backend web server built with plain Plug. This ensures
+        that the web server is not bogged down by unnecessary fuss and can focus on delivering high performance in
+        real-time.
+      </p>
+    </div>
+
+    <div class="reason">
+      <img src="<%= Routes.static_path(@conn, "/images/diagram.svg") %>" alt="Reliable"/>
+      <h3>Reliable</h3>
+      <p>
+        Leveraging Elixir & Docker to facilitate application recovery. Distributed servers to ensure application
+        availability.
+      </p>
+    </div>
+
+    <div class="reason">
+      <img src="<%= Routes.static_path(@conn, "/images/mug.svg") %>" alt="Open Source"/>
+      <h3>Open Source</h3>
+      <p>
+        Publicly available for self-hosting and contribution.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function copyToClipboard(id) {
+    let r = document.createRange()
+    r.selectNode(document.getElementById(id))
+    window.getSelection().removeAllRanges()
+    window.getSelection().addRange(r)
+    document.execCommand("copy")
+    window.getSelection().removeAllRanges()
+  }
+</script>
